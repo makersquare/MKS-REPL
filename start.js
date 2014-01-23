@@ -71,6 +71,8 @@ MKSjsrepl = function(id) {
 
   startPrompt();
 
+  return jsrepl
+
 }
 
 

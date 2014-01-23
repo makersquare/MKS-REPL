@@ -1,11 +1,16 @@
 <html>
   <head>
     <style type="text/css">
+      #editor {
+        display: inline-block;
+        width: 450px;
+        height: 400px;
+      }
       /* The console container element */
       .console {
-        position: relative;
+        display: inline-block;
         width: 400px;
-        height: 500px;
+        height: 400px;
         background-color:black;
       }
       /* The inner console element. */
@@ -51,11 +56,25 @@
   </head>
   <body>
     <script src="repl.js" id="jsrepl-script"></script>
-    <div id="a" class="console"></div>
-    <div id="b" class="console"></div>
-    <div id="c" class="console"></div>
-    <script src="jqconsole-2.7.4.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="jqconsole.js" type="text/javascript" charset="utf-8"></script>
+    <script src="ace/ace.js" data-ace-base="ace" type="text/javascript" charset="utf-8"></script>
     <script src="start.js" type="text/javascript" charset="utf-8"></script>
+    <div>
+      <div id="editor">
+function foo(items) {
+  var x = "All this is syntax highlighted";
+  return x;
+}
+      </div>
+      <div class="console">
+        <div id="b">
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      var editor = ace.edit("editor");
+      editor.getSession().setMode("ace/mode/javascript");
+    </script>
   </body>
 
 </html>
