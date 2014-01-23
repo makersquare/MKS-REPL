@@ -4,9 +4,14 @@
       .run{
         display: block;
         float: right;
-        font-family: Monaco;
-        background-color:gray;
-        color: white
+        z-index: 1;
+        position: absolute;
+        margin-left: 420;
+        cursor: pointer;
+        opacity: .2;
+      }
+      .run:hover{
+          opacity: .7;
       }
       .editor {
         width: 450px;
@@ -66,8 +71,11 @@
   <script src="start.js" type="text/javascript" charset="utf-8"></script>
   <div id="test">
   </div>
+  <div id="test2">
+  </div>
   <script type="text/javascript">
-      var test = new MKSjsrepl("test")
+      var test = new MKSjsrepl("test");
+      var test2 = new MKSjsrepl("test2");
     </script>
 </body>
 

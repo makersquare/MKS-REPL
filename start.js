@@ -2,7 +2,7 @@
 MKSjsrepl = function(id) {
 
 
-  var html ='<table><tr><td><div id="' + id + '-run" class="run">run</div><div id="' + id + '-editor" class="editor"></div></td><td><div id="' + id + '-console" class="console"></div></td></tr></table>'
+  var html ='<table><tr><td><img src="play_button.png" id="' + id + '-run" class="run" /><div id="' + id + '-editor" class="editor"></div></td><td><div id="' + id + '-console" class="console"></div></td></tr></table>'
 
   $("#" + id).html(html)
 
@@ -87,7 +87,15 @@ MKSjsrepl = function(id) {
     console.log("click");
   });
 
-  return;
+  return {
+    eval: function(command){
+      jsrepl.eval(command);
+    },
+
+    setEditorText: function(code){
+      editor.setValue(code);
+    }
+  };
 
 }
 
