@@ -300,7 +300,7 @@ JQConsole = (function() {
     this.shortcuts = {};
     this.$console = $('<pre class="jqconsole"/>').appendTo(this.container);
     this.$console.css({
-      position: 'absolute',
+      position: 'relative',
       top: 0,
       bottom: 0,
       right: 0,

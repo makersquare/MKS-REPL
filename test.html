@@ -1,14 +1,19 @@
 <html>
-  <head>
-    <style type="text/css">
-      #editor {
-        display: inline-block;
+<head>
+  <style type="text/css">
+      .run{
+        display: block;
+        float: right;
+        font-family: Monaco;
+        background-color:gray;
+        color: white
+      }
+      .editor {
         width: 450px;
         height: 400px;
       }
       /* The console container element */
       .console {
-        display: inline-block;
         width: 400px;
         height: 400px;
         background-color:black;
@@ -51,31 +56,19 @@
           color: red;
       }
     </style>
-    <script type="text/javascript" src='//cdnjs.cloudflare.com/ajax/libs/jquery/1.7/jquery.min.js'></script>
+  <script type="text/javascript" src='//cdnjs.cloudflare.com/ajax/libs/jquery/1.7/jquery.min.js'></script>
 
-  </head>
-  <body>
-    <script src="repl.js" id="jsrepl-script"></script>
-    <script src="jqconsole.js" type="text/javascript" charset="utf-8"></script>
-    <script src="ace/ace.js" data-ace-base="ace" type="text/javascript" charset="utf-8"></script>
-    <script src="start.js" type="text/javascript" charset="utf-8"></script>
-    <div>
-      <div id="editor">
-function foo(items) {
-  var x = "All this is syntax highlighted";
-  return x;
-}
-      </div>
-      <div class="console">
-        <div id="b">
-        </div>
-      </div>
-    </div>
-    <script type="text/javascript">
-      var editor = ace.edit("editor");
-      editor.getSession().setMode("ace/mode/javascript");
+</head>
+<body>
+  <script src="repl.js" id="jsrepl-script"></script>
+  <script src="jqconsole.js" type="text/javascript" charset="utf-8"></script>
+  <script src="ace/ace.js" data-ace-base="ace" type="text/javascript" charset="utf-8"></script>
+  <script src="start.js" type="text/javascript" charset="utf-8"></script>
+  <div id="test">
+  </div>
+  <script type="text/javascript">
+      var test = new MKSjsrepl("test")
     </script>
-  </body>
+</body>
 
 </html>
-

@@ -1,7 +1,17 @@
 
 MKSjsrepl = function(id) {
 
-  var jqconsole = $(id).jqconsole();
+
+  var html ='<table><tr><td><div id="' + id + '-run" class="run">run</div><div id="' + id + '-editor" class="editor"></div></td><td><div id="' + id + '-console" class="console"></div></td></tr></table>'
+
+  $("#" + id).html(html)
+
+  var eid = id + '-editor'
+  var cid = id + '-console'
+
+  var jqconsole = $("#" + cid).jqconsole();
+  var editor = ace.edit(eid);
+  editor.getSession().setMode("ace/mode/javascript");
 
   function log() {
     console.log(arguments);
@@ -13,6 +23,8 @@ MKSjsrepl = function(id) {
         result = result + '\n';
       }
       jqconsole.Write('=> ' + result, 'jqconsole-output');
+    } else {
+      jqconsole.Write('=> undefined\n', 'jqconsole-output')
     }
     return;
   }
@@ -70,8 +82,12 @@ MKSjsrepl = function(id) {
   };
 
   startPrompt();
+  $("#" + id + "-run").click(function(){
+    jsrepl.eval(editor.getValue());
+    console.log("click");
+  });
 
-  return jsrepl
+  return;
 
 }
 
